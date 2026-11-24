@@ -2,42 +2,41 @@ const D={profiles:[['كرافت لاين تركي / تقفيل مصري',3800],[
 function sketch(x) {
   const frame = `
     <rect x="55" y="12" width="130" height="125"
-      fill="#cfe6f6" stroke="#7d8998" stroke-width="6"/>
+      fill="#cfe6f6" stroke="#7d8998" stroke-width="5"/>
   `;
-
-  if (x.o === 'قلاب') {
-    return `<svg viewBox="0 0 240 160">
-      ${frame}
-      <path d="M65 22H175" stroke="#c99b45" stroke-width="5"/>
-      <path d="M65 22V125H175V22"
-        fill="none" stroke="#9aa8b5" stroke-width="2"
-        stroke-dasharray="5 4"/>
-      <path d="M65 22L80 105L160 105L175 22"
-        fill="#b8d5e8" fill-opacity=".5"
-        stroke="#456078" stroke-width="4"/>
-      <path d="M105 35L105 65 M135 35L135 65"
-        stroke="#c99b45" stroke-width="3"/>
-      <path d="M95 85L80 105L100 100 M145 85L160 105L140 100"
-        fill="none" stroke="#c99b45" stroke-width="3"/>
-      <text x="120" y="154" text-anchor="middle"
-        font-size="11" fill="#456078">قلاب - فتح من أعلى</text>
-    </svg>`;
-  }
 
   if (x.o === 'مفصلي') {
     return `<svg viewBox="0 0 240 160">
       ${frame}
-      <path d="M120 20V130" stroke="#7d8998" stroke-width="2"/>
-      <path d="M65 22L110 125L110 22Z"
-        fill="#b8d5e8" fill-opacity=".5"
-        stroke="#456078" stroke-width="4"/>
-      <path d="M175 22L130 125L130 22Z"
-        fill="#b8d5e8" fill-opacity=".5"
-        stroke="#456078" stroke-width="4"/>
-      <path d="M85 65Q100 45 112 65 M155 65Q140 45 128 65"
-        fill="none" stroke="#c99b45" stroke-width="3"/>
+      <g fill="none" stroke="#456078"
+        stroke-width="5" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M75 35
+          C95 50 105 65 120 80
+          C135 95 145 110 165 125"/>
+        <path d="M165 35
+          C145 50 135 65 120 80
+          C105 95 95 110 75 125"/>
+      </g>
       <text x="120" y="154" text-anchor="middle"
-        font-size="11" fill="#456078">مفصلي - ضلفتان</text>
+        font-size="11" fill="#456078">مفصلي</text>
+    </svg>`;
+  }
+
+  if (x.o === 'قلاب') {
+    return `<svg viewBox="0 0 240 160">
+      ${frame}
+      <path d="M120 25
+        C105 50 95 75 85 95
+        C80 108 75 118 75 125
+        M120 25
+        C135 50 145 75 155 95
+        C160 108 165 118 165 125"
+        fill="none" stroke="#456078"
+        stroke-width="5" stroke-linecap="round"
+        stroke-linejoin="round"/>
+      <text x="120" y="154" text-anchor="middle"
+        font-size="11" fill="#456078">قلاب</text>
     </svg>`;
   }
 
