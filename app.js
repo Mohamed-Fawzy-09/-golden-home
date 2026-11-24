@@ -1,4 +1,4 @@
-const D={profiles:[['كرافت لاين تركي / تقفيل مصري',3800],['نيولاين اقتصادي مصري',3300],['سيتي برمير',3500]],openings:[['جرار',0],['مفصلي',0],['قلاب',0]],glass:[['زجاج أبيض شفاف سنجل',0],['زجاج أبيض عاكس',0],['زجاج أبيض مسنفر سنجل',0],['زجاج دبل جورجيا',600]],inners:[['زجاج',0],['بانل',0]],addons:[['سلك بليسيه',750],['سلك عادي',250],['إكسسوارات خاصة',0],['نقل وتركيب',0]],minArea:1};let C;try{C={...D,...JSON.parse(localStorage.gh_catalog||'{}')}}catch{C=D}let I=[];const $=s=>document.querySelector(s),M=n=>(+n||0).toLocaleString('en-US')+' ج.م',E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function nav(){let b=$('.menu');if(b)b.onclick=()=>$('.nav').classList.toggle('open')}function opts(a,v){return a.map(x=>`<option ${x[0]===v?'selected':''}>${E(x[0])}</option>`).join('')}function addItem(){I.push({id:Date.now()+Math.random(),kind:'شباك',w:120,h:120,q:1,p:C.profiles[0][0],o:'جرار',g:C.glass[0][0],n:'زجاج',a:[]});drawItems()}function A(x){return Math.max(+C.minArea||1,(+x.w)*(+x.h)/10000)}function R(x){return (C.profiles.find(a=>a[0]===x.p)?.[1]||0)+(C.openings.find(a=>a[0]===x.o)?.[1]||0)+(C.glass.find(a=>a[0]===x.g)?.[1]||0)+x.a.reduce((s,n)=>s+(C.addons.find(a=>a[0]===n)?.[1]||0),0)}function calc(x){return {a:A(x),r:R(x),t:A(x)*R(x)*x.q}}
+const D={profiles:[['كرافت لاين تركي / تقفيل مصري',3800],['نيولاين اقتصادي مصري',3300],['سيتي برمير',3500]],openings:[['جرار',0],['مفصلي',0],['قلاب',0]],openings:[[مفصلي ضلفه],[مفصلي ضلفتين]],glass:[['زجاج أبيض شفاف سنجل',0],['زجاج أبيض عاكس',0],['زجاج أبيض مسنفر سنجل',0],['زجاج دبل جورجيا',600]],inners:[['زجاج',0],['بانل',0]],addons:[['سلك بليسيه',750],['سلك عادي',250],['إكسسوارات خاصة',0],['نقل وتركيب',0]],minArea:1};let C;try{C={...D,...JSON.parse(localStorage.gh_catalog||'{}')}}catch{C=D}let I=[];const $=s=>document.querySelector(s),M=n=>(+n||0).toLocaleString('en-US')+' ج.م',E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function nav(){let b=$('.menu');if(b)b.onclick=()=>$('.nav').classList.toggle('open')}function opts(a,v){return a.map(x=>`<option ${x[0]===v?'selected':''}>${E(x[0])}</option>`).join('')}function addItem(){I.push({id:Date.now()+Math.random(),kind:'شباك',w:120,h:120,q:1,p:C.profiles[0][0],o:'جرار',g:C.glass[0][0],n:'زجاج',a:[]});drawItems()}function A(x){return Math.max(+C.minArea||1,(+x.w)*(+x.h)/10000)}function R(x){return (C.profiles.find(a=>a[0]===x.p)?.[1]||0)+(C.openings.find(a=>a[0]===x.o)?.[1]||0)+(C.glass.find(a=>a[0]===x.g)?.[1]||0)+x.a.reduce((s,n)=>s+(C.addons.find(a=>a[0]===n)?.[1]||0),0)}function calc(x){return {a:A(x),r:R(x),t:A(x)*R(x)*x.q}}
 function sketch(x) {
   const frame = `
     <rect x="55" y="12" width="130" height="125"
@@ -9,34 +9,23 @@ function sketch(x) {
     return `<svg viewBox="0 0 240 160">
       ${frame}
       <g fill="none" stroke="#456078"
-        stroke-width="5" stroke-linecap="round"
-        stroke-linejoin="round">
-        <path d="M75 35
-          C95 50 105 65 120 80
-          C135 95 145 110 165 125"/>
-        <path d="M165 35
-          C145 50 135 65 120 80
-          C105 95 95 110 75 125"/>
+        stroke-width="5" stroke-linecap="square"
+        stroke-linejoin="miter">
+        <path d="M65 22 L120 65 L120 95 L65 130"/>
+        <path d="M175 22 L120 65 L120 95 L175 130"/>
       </g>
-      <text x="120" y="154" text-anchor="middle"
-        font-size="11" fill="#456078">مفصلي</text>
     </svg>`;
   }
 
   if (x.o === 'قلاب') {
     return `<svg viewBox="0 0 240 160">
       ${frame}
-      <path d="M120 25
-        C105 50 95 75 85 95
-        C80 108 75 118 75 125
-        M120 25
-        C135 50 145 75 155 95
-        C160 108 165 118 165 125"
-        fill="none" stroke="#456078"
-        stroke-width="5" stroke-linecap="round"
-        stroke-linejoin="round"/>
-      <text x="120" y="154" text-anchor="middle"
-        font-size="11" fill="#456078">قلاب</text>
+      <g fill="none" stroke="#456078"
+        stroke-width="5" stroke-linecap="square"
+        stroke-linejoin="miter">
+        <path d="M120 22 L65 130"/>
+        <path d="M120 22 L175 130"/>
+      </g>
     </svg>`;
   }
 
