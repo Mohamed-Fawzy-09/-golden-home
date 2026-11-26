@@ -1,7 +1,1 @@
-Golden Home website — Arabic RTL responsive static site
-
-Files: index.html, calculator.html, prices.html, quotes.html, customers.html, admin.html, style.css and JS files.
-Upload ALL files and assets folder to the root of your GitHub Pages repository (replace old files).
-Admin default PIN: 1234. Change it from Admin page after login.
-Important: data and prices are stored in the browser localStorage on the same device/browser only; they are not synchronized between devices.
-Calculator default rates are starter values and should be reviewed by Golden Home before issuing customer quotes.
+ارفع كل الملفات الموجودة داخل هذا المجلد إلى جذر مستودع GitHub واستبدل الملفات القديمة. احتفظ بملف golden-home-logo.png الموجود لديك في نفس المجلد. صفحات الموقع: index.html وcalculator.html وprices.html وquotes.html وcustomers.html وadmin.html. رمز الإدارة الافتراضي 1234. ملاحظة: بيانات localStorage ورمز الإدارة محليان على نفس الجهاز والمتصفح وليسا قاعدة بيانات أو حماية أمنية حقيقية. الأسعار الابتدائية: كرافت لاين 3800، نيولاين 3300، سيتي برمير 3500، دبل جورجيا +600، بليسيه +750؛ راجعها وعدلها من صفحة الإدارة.
